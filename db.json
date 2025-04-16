@@ -1,0 +1,142 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "title": "Mua sắm",
+      "content": "Mua sữa, bánh mì, rau và thịt cho tuần này.",
+      "priority": 2,
+      "createdAt": "2024-04-01T10:00:00.000Z",
+      "modifiedAt": "2024-04-01T12:00:00.000Z",
+      "tags": ["shopping", "groceries"],
+      "color": "FFCDD2"
+    },
+    {
+      "id": 2,
+      "title": "Lập kế hoạch du lịch",
+      "content": "Lên lịch trình du lịch Đà Lạt với bạn bè vào tháng 5.",
+      "priority": 3,
+      "createdAt": "2024-03-28T09:00:00.000Z",
+      "modifiedAt": "2024-03-30T10:30:00.000Z",
+      "tags": ["travel", "plan"],
+      "color": "FFF9C4"
+    },
+    {
+      "id": 3,
+      "title": "Học Flutter",
+      "content": "Hoàn thành bài học về ListView và Navigation.",
+      "priority": 1,
+      "createdAt": "2024-03-20T14:30:00.000Z",
+      "modifiedAt": "2024-03-21T15:00:00.000Z",
+      "tags": ["flutter", "code"],
+      "color": "C8E6C9"
+    },
+    {
+      "id": 4,
+      "title": "Đọc sách",
+      "content": "Đọc xong chương 5 của sách Atomic Habits.",
+      "priority": 1,
+      "createdAt": "2024-04-02T08:00:00.000Z",
+      "modifiedAt": "2024-04-02T08:30:00.000Z",
+      "tags": ["reading", "habit"],
+      "color": "CFD8DC"
+    },
+    {
+      "id": 5,
+      "title": "Gọi điện thoại cho mẹ",
+      "content": "Gọi điện hỏi thăm sức khỏe và trò chuyện.",
+      "priority": 2,
+      "createdAt": "2024-04-03T17:00:00.000Z",
+      "modifiedAt": "2024-04-03T17:30:00.000Z",
+      "tags": ["family"],
+      "color": "FFCDD2"
+    },
+    {
+      "id": 6,
+      "title": "Thiết kế UI mới",
+      "content": "Phác thảo wireframe cho màn hình đăng nhập.",
+      "priority": 3,
+      "createdAt": "2024-04-01T11:00:00.000Z",
+      "modifiedAt": "2024-04-01T13:00:00.000Z",
+      "tags": ["ui", "design"],
+      "color": "C8E6C9"
+    },
+    {
+      "id": 7,
+      "title": "Tập gym",
+      "content": "Tập chân và bụng, kéo giãn sau buổi tập.",
+      "priority": 2,
+      "createdAt": "2024-04-04T06:00:00.000Z",
+      "modifiedAt": "2024-04-04T07:00:00.000Z",
+      "tags": ["fitness", "health"],
+      "color": "FFF9C4"
+    },
+    {
+      "id": 8,
+      "title": "Viết blog",
+      "content": "Chia sẻ kinh nghiệm học Flutter tuần đầu tiên.",
+      "priority": 1,
+      "createdAt": "2024-03-25T19:00:00.000Z",
+      "modifiedAt": "2024-03-26T10:00:00.000Z",
+      "tags": ["blog", "flutter"],
+      "color": "CFD8DC"
+    },
+    {
+      "id": 9,
+      "title": "Kiểm tra email",
+      "content": "Trả lời email từ đối tác và dọn hộp thư đến.",
+      "priority": 1,
+      "createdAt": "2024-04-01T07:30:00.000Z",
+      "modifiedAt": "2024-04-01T08:00:00.000Z",
+      "tags": ["work"],
+      "color": "FFCDD2"
+    },
+    {
+      "id": 10,
+      "title": "Họp nhóm dự án",
+      "content": "Họp trực tuyến với team backend vào thứ Sáu.",
+      "priority": 3,
+      "createdAt": "2024-04-05T15:00:00.000Z",
+      "modifiedAt": "2024-04-05T16:00:00.000Z",
+      "tags": ["meeting", "project"],
+      "color": "C8E6C9"
+    }
+  ],
+  "accounts": [
+    {
+      "id": 1,
+      "userId": 1,
+      "username": "nguyenvanan",
+      "password": "An@123456",
+      "status": "active",
+      "lastLogin": "2025-04-02T08:15:30.000Z",
+      "createdAt": "2023-05-01T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "username": "tranthibinh",
+      "password": "Binh@123456",
+      "status": "active",
+      "lastLogin": "2025-04-06T14:22:10.000Z",
+      "createdAt": "2023-06-15T00:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "username": "levancuong",
+      "password": "Cuong@123456",
+      "status": "active",
+      "lastLogin": "2025-04-07T19:45:18.000Z",
+      "createdAt": "2023-07-22T00:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "userId": 4,
+      "username": "phamthidieu",
+      "password": "Dieu@123456",
+      "status": "unactive",
+      "lastLogin": "2025-04-05T10:30:42.000Z",
+      "createdAt": "2023-08-10T00:00:00.000Z"
+    }
+  ]
+}
