@@ -68,16 +68,32 @@ def delete_note(note_id):
 
 @app.route('/accounts', methods=['GET'])
 def get_accounts():
+    # Bảo đảm mỗi account có status mặc định là active
+    for account in db['accounts']:
+        account.setdefault('status', 'active')
     return jsonify(db['accounts'])
+
+@app.route('/accounts/<int:account_id>', methods=['GET'])
+def get_account_by_id(account_id):
+    account = next((a for a in db['accounts'] if a.get('id') == account_id), None)
+    if account:
+        return jsonify(account)
+    return jsonify({'error': 'Account not found'}), 404
 
 @app.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
     username = data.get('username')
     password = data.get('password')
-    user = next((u for u in db['accounts'] if u['username'] == username and u['password'] == password), None)
+    user = next(
+        (u for u in db['accounts']
+         if u.get('username') == username and
+            u.get('password') == password and
+            u.get('status', 'active') == 'active'),
+        None
+    )
     if user:
-        return jsonify({'message': 'Login successful', 'userId': user['userId']})
+        return jsonify({'message': 'Login successful', 'id': user.get('id'), 'username': user['username']})
     return jsonify({'error': 'Invalid credentials'}), 401
 
 # ──────────────── Run ────────────────
