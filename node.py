@@ -68,7 +68,6 @@ def delete_note(note_id):
 
 @app.route('/accounts', methods=['GET'])
 def get_accounts():
-    # Bảo đảm mỗi account có status mặc định là active
     for account in db['accounts']:
         account.setdefault('status', 'active')
     return jsonify(db['accounts'])
@@ -78,6 +77,46 @@ def get_account_by_id(account_id):
     account = next((a for a in db['accounts'] if a.get('id') == account_id), None)
     if account:
         return jsonify(account)
+    return jsonify({'error': 'Account not found'}), 404
+
+@app.route('/accounts', methods=['POST'])
+def create_account():
+    data = request.get_json()
+    data['id'] = max([a['id'] for a in db['accounts']] or [0]) + 1
+    data.setdefault('status', 'active')
+    db['accounts'].append(data)
+    save_db()
+    return jsonify(data), 201
+
+@app.route('/accounts/<int:account_id>', methods=['PATCH'])
+def patch_account(account_id):
+    data = request.get_json()
+    account = next((a for a in db['accounts'] if a['id'] == account_id), None)
+    if not account:
+        return jsonify({'error': 'Account not found'}), 404
+
+    account.update(data)
+    save_db()
+    return jsonify(account)
+
+@app.route('/accounts/<int:account_id>', methods=['PUT'])
+def update_account(account_id):
+    data = request.get_json()
+    for i, acc in enumerate(db['accounts']):
+        if acc['id'] == account_id:
+            data['id'] = account_id
+            db['accounts'][i] = data
+            save_db()
+            return jsonify(data)
+    return jsonify({'error': 'Account not found'}), 404
+
+@app.route('/accounts/<int:account_id>', methods=['DELETE'])
+def delete_account(account_id):
+    for i, acc in enumerate(db['accounts']):
+        if acc['id'] == account_id:
+            del db['accounts'][i]
+            save_db()
+            return jsonify({'message': 'Account deleted'})
     return jsonify({'error': 'Account not found'}), 404
 
 @app.route('/login', methods=['POST'])
