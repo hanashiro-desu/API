@@ -11,7 +11,7 @@ with open('db.json', encoding='utf-8') as f:
 
 @app.route('/')
 def home():
-    return jsonify({'message': 'API đang chạy từ Render!'})
+    return jsonify({'message': 'Đây là Web của Shiori-desu'})
 
 @app.route('/notes')
 def get_notes():
