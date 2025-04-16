@@ -1,9 +1,9 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
-CORS(app)
 import json
 
 app = Flask(__name__)
+CORS(app)  # ✅ gọi CORS sau khi app được khởi tạo
 
 # Load dữ liệu từ db.json
 with open('db.json', encoding='utf-8') as f:
