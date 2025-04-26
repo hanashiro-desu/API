@@ -27,7 +27,12 @@ def home():
 
 @app.route('/notes', methods=['GET'])
 def get_notes():
-    return jsonify(db['notes'])
+    user_id = request.args.get('userId')
+    if user_id is None:
+        return jsonify({'error': 'Missing userId'}), 400
+
+    user_notes = [n for n in db['notes'] if str(n.get('userId')) == str(user_id)]
+    return jsonify(user_notes)
 
 @app.route('/notes/<int:note_id>', methods=['GET'])
 def get_note(note_id):
@@ -39,6 +44,10 @@ def get_note(note_id):
 @app.route('/notes', methods=['POST'])
 def add_note():
     data = request.get_json()
+    user_id = data.get('userId')
+    if user_id is None:
+        return jsonify({'error': 'Missing userId'}), 400
+
     data['id'] = max([n['id'] for n in db['notes']] or [0]) + 1
     db['notes'].append(data)
     save_db()
